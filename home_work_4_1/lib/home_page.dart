@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:home_work_4_1/input_number.dart';
+import 'package:home_work_4_1/declaration.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,13 +28,83 @@ class HomePage extends StatelessWidget {
                 'assets/images/calculator.jpeg',
                 width: 150,
               ),
-              InputNumber(key: const Key('inputA'), text: 'Nhập số A'),
-              InputNumber(key: const Key('inputB'), text: 'Nhập số B'),
-              Container(padding: EdgeInsets.all(20), child: Text('Ket Qua')),
+              InputNumber(text: 'Nhập số A', controller: controllerA),
+              InputNumber(text: 'Nhập số B', controller: controllerB),
               Container(
-                child: Row(
-                  children: [],
-                ),
+                  padding: const EdgeInsets.all(20.0),
+                  child: Text('Ket Qua : $ketqua')),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        ketqua = cong(double.parse(controllerA.text),
+                            double.parse(controllerB.text));
+                      });
+                    },
+                    child: const Text(
+                      '+',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    style: ButtonStyle(
+                        fixedSize:
+                            MaterialStateProperty.all(const Size(90, 40)),
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.blueAccent)),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        ketqua = tru(double.parse(controllerA.text),
+                            double.parse(controllerB.text));
+                      });
+                    },
+                    child: const Text(
+                      '-',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    style: ButtonStyle(
+                        fixedSize:
+                            MaterialStateProperty.all(const Size(90, 40)),
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.redAccent)),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        ketqua = nhan(double.parse(controllerA.text),
+                            double.parse(controllerB.text));
+                      });
+                    },
+                    child: const Text(
+                      'x',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    style: ButtonStyle(
+                        fixedSize:
+                            MaterialStateProperty.all(const Size(90, 40)),
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.green[600])),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        ketqua = chia(double.parse(controllerA.text),
+                            double.parse(controllerB.text));
+                      });
+                    },
+                    child: const Text(
+                      ':',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    style: ButtonStyle(
+                        fixedSize:
+                            MaterialStateProperty.all(const Size(90, 40)),
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.orangeAccent)),
+                  ),
+                ],
               ),
             ],
           ),

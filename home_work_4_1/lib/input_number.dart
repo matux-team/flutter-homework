@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class InputNumber extends StatelessWidget {
-  InputNumber({Key? key, required this.text}) : super(key: key);
+  const InputNumber({Key? key, required this.text, required this.controller})
+      : super(key: key);
 
-  final controller = TextEditingController();
+  final TextEditingController? controller;
   final String text;
 
   @override
@@ -13,6 +15,7 @@ class InputNumber extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.35,
       child: TextField(
         controller: controller,
+        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         decoration: InputDecoration(
             border: const UnderlineInputBorder(), labelText: text),
       ),
