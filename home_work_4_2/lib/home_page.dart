@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         title: const Text(
-          'Flex Demo - CodeFresher',
+          'Flex Demo',
           textAlign: TextAlign.center,
         ),
         centerTitle: true,
