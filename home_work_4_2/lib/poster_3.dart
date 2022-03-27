@@ -10,15 +10,17 @@ class Poster3 extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
+          // color: Colors.red,
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width * 0.6,
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(20.0),
           child: Image.network(
             'https://scontent.fhan5-7.fna.fbcdn.net/v/t31.18172-8/23593690_1865809717066002_4289338018334961210_o.jpg?stp=dst-jpg_s851x315&_nc_cat=100&ccb=1-5&_nc_sid=da31f3&_nc_ohc=MjVrjJWMnp8AX_oSrus&_nc_ht=scontent.fhan5-7.fna&oh=00_AT8QltMpzO4-eyCwt_7BwKpS3WA7rI9znM2Va26PoS8Zmg&oe=6264757B',
+            alignment: Alignment.centerLeft,
+            fit: BoxFit.fill,
           ),
         ),
-        Flexible(
-          fit: FlexFit.tight,
+        Expanded(
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Column(

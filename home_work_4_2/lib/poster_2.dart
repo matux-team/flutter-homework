@@ -35,10 +35,11 @@ class Poster2 extends StatelessWidget {
         ),
         Container(
             width: MediaQuery.of(context).size.width * 0.5,
-            padding: const EdgeInsets.only(right: 20),
+            padding: const EdgeInsets.all(20),
             child: Image.network(
               'https://scontent.fhan5-8.fna.fbcdn.net/v/t1.6435-9/167577317_2811088322538132_1573392957606755652_n.jpg?stp=dst-jpg_s851x315&_nc_cat=107&ccb=1-5&_nc_sid=da31f3&_nc_ohc=Ehe5RoYy-PkAX9pvJv6&_nc_ht=scontent.fhan5-8.fna&oh=00_AT-b3vFozrD34qPFUZhnpRsE9y30ZtM-cUC39i48yepRfw&oe=6266F97D',
-              height: MediaQuery.of(context).size.height * 0.28,
+              alignment: Alignment.centerRight,
+              fit: BoxFit.fill,
             )),
       ],
     );
