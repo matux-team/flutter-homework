@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class DetailScreen extends StatelessWidget {
   // DetailScreen({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class DetailScreen extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(top: 12),
               child: Text(
                 'Năm Sinh: $_yearReceive',
                 style: const TextStyle(fontWeight: FontWeight.w900),

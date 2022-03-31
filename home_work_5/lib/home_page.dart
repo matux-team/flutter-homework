@@ -67,7 +67,6 @@ class HomePage extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               child: Container(
-                padding: const EdgeInsets.all(1),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15), // Image border
                   child: SizedBox(
@@ -80,10 +79,15 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return DetailScreen(
-                      _image[index], _name[index], _year[index]);
-                }));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return DetailScreen(
+                          _image[index], _name[index], _year[index]);
+                    },
+                  ),
+                );
               },
             );
           },
