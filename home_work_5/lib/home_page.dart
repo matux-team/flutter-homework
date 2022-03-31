@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
+
+  final List<String> image = [
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToSelgFd49BQZNRiQxG7hzaIMUWBrGuGwbIQ&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMPG900ILx1vcv_v2y5JV8H6X1w7wX34YYiA&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpxrnRc8JvqCh4996hzkmHxX4R0wPPPxgOig&usqp=CAU'
+  ];
+
+  final List<int> price = [
+    2000,
+    3000,
+    4000,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -33,37 +46,34 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(20),
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        crossAxisCount: 2,
-        children: <Widget>[
-          Container(
-            // decoration: BoxDecoration(
-            //   // border: Border.all(color: Colors.blueAccent),
-            // ),
-            padding: const EdgeInsets.all(8),
-            child: const Text("He'd have you all unravel at the"),
-            color: Colors.teal[100],
+      body: MediaQuery.removePadding(
+        context: context,
+        child: GridView.builder(
+          padding:
+              const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisSpacing: 15, // khoang cach giua cac cot
+            mainAxisSpacing: 12, // khoang cach giua moi hang
+            mainAxisExtent: 200, // do cao moi cot
+            crossAxisCount: 2, // 2 cot
           ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text('Heed not the rabble'),
-            color: Colors.teal[200],
-          ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text('Sound of screams but the'),
-            color: Colors.teal[300],
-          ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text('Who scream'),
-            color: Colors.teal[400],
-          ),
-        ],
+          itemCount: 3,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              padding: const EdgeInsets.all(1),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15), // Image border
+                child: SizedBox(
+                  child: Image.network(
+                    image[index],
+                    alignment: Alignment.topCenter,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
