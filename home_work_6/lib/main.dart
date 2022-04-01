@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:home_work_6/edit_product.dart';
+import 'package:home_work_6/product_list.dart';
 
 void main() {
   runApp(const MyApp());
+}
+
+class Routes {
+  static final String productListPage = "/screen1";
+  static final String editProductPage = "/screen2";
 }
 
 class MyApp extends StatelessWidget {
@@ -15,6 +22,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      debugShowCheckedModeBanner: false,
+      routes: {
+        Routes.productListPage: (context) => ProductListPage(),
+        Routes.editProductPage: (context) => EditProductPage(),
+      },
+      initialRoute: Routes.productListPage,
     );
   }
 }
