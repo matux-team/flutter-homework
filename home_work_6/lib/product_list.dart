@@ -23,14 +23,65 @@ class _ProductListPageState extends State<ProductListPage> {
         title: const Text('Products List'),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+          MaterialButton(
+            onPressed: () {},
+            child: const Icon(
+              Icons.add,
+              color: Colors.white,
+              size: 28,
+            ),
+          ),
         ],
       ),
       body: ListView.separated(
         padding: const EdgeInsets.all(10),
         itemCount: listProduct.length,
         itemBuilder: (BuildContext context, int index) {
-          return ProductTag(listProduct[index]);
+          return InkWell(
+            child: Row(
+              children: [
+                ProductTag(listProduct[index]),
+                Expanded(
+                  child: Container(
+                    color: Colors.red,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.edit,
+                    color: Colors.purple,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      listProduct[index].favorite =
+                          !listProduct[index].favorite;
+                    });
+                  },
+                  icon: Icon(
+                    listProduct[index].favorite
+                        ? Icons.favorite
+                        : Icons.favorite_border,
+                    color: Colors.green,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      listProduct.remove(listProduct[index]);
+                    });
+                  },
+                  icon: const Icon(
+                    Icons.delete,
+                    color: Colors.red,
+                  ),
+                )
+              ],
+            ),
+            onTap: () {},
+          );
         },
         separatorBuilder: (BuildContext context, int index) => const Divider(
           height: 10,

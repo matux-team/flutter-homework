@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_work_6/create_product.dart';
 import 'package:home_work_6/edit_product.dart';
 import 'package:home_work_6/product_list.dart';
 
@@ -9,6 +10,7 @@ void main() {
 class Routes {
   static final String productListPage = "/screen1";
   static final String editProductPage = "/screen2";
+  static final String createProductPage = "/screen2";
 }
 
 class MyApp extends StatelessWidget {
@@ -26,6 +28,7 @@ class MyApp extends StatelessWidget {
       routes: {
         Routes.productListPage: (context) => ProductListPage(),
         Routes.editProductPage: (context) => EditProductPage(),
+        Routes.createProductPage: (context) => CreateProductPage(),
       },
       initialRoute: Routes.productListPage,
     );
