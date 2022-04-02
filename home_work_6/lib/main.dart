@@ -8,9 +8,9 @@ void main() {
 }
 
 class Routes {
-  static final String productListPage = "/screen1";
-  static final String editProductPage = "/screen2";
-  static final String createProductPage = "/screen2";
+  static const String productListPage = "/screen1";
+  static const String editProductPage = "/screen2";
+  static const String createProductPage = "/screen3";
 }
 
 class MyApp extends StatelessWidget {
@@ -26,9 +26,9 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       routes: {
-        Routes.productListPage: (context) => ProductListPage(),
-        Routes.editProductPage: (context) => EditProductPage(),
-        Routes.createProductPage: (context) => CreateProductPage(),
+        Routes.productListPage: (context) => const ProductListPage(),
+        Routes.editProductPage: (context) => const EditProductPage(),
+        Routes.createProductPage: (context) => const CreateProductPage(),
       },
       initialRoute: Routes.productListPage,
     );

@@ -24,7 +24,16 @@ class _ProductListPageState extends State<ProductListPage> {
         centerTitle: true,
         actions: [
           MaterialButton(
-            onPressed: () {},
+            onPressed: () async {
+              var newProduct = await Navigator.pushNamed(context, '/screen3');
+              setState(
+                () {
+                  if (newProduct != null) {
+                    listProduct.add(newProduct as Product);
+                  }
+                },
+              );
+            },
             child: const Icon(
               Icons.add,
               color: Colors.white,

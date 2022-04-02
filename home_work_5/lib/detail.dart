@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class DetailScreen extends StatelessWidget {
-  // DetailScreen({Key? key}) : super(key: key);
-
   final String _imageReceive;
   final String _nameReceive;
   final int _yearReceive;
 
-  DetailScreen(this._imageReceive, this._nameReceive, this._yearReceive);
+  const DetailScreen(this._imageReceive, this._nameReceive, this._yearReceive,
+      {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

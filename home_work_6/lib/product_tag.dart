@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:home_work_6/product_list.dart';
 import 'package:home_work_6/product_model.dart';
 
 class ProductTag extends StatefulWidget {
-  ProductTag(this._product, {Key? key}) : super(key: key);
+  const ProductTag(this._product, {Key? key}) : super(key: key);
 
-  Product _product;
+  final Product _product;
 
   @override
   State<ProductTag> createState() => _ProductTagState();
