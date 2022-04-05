@@ -25,11 +25,14 @@ class _ProductListPageState extends State<ProductListPage> {
         actions: [
           MaterialButton(
             onPressed: () async {
-              var newProduct = await Navigator.pushNamed(context, '/screen3');
+              Product newProduct = Product('', '', '', '');
+              var receiveProduct = await Navigator.pushNamed(
+                  context, '/screen3',
+                  arguments: newProduct);
               setState(
                 () {
-                  if (newProduct != null) {
-                    listProduct.add(newProduct as Product);
+                  if ((receiveProduct as Product).name != '') {
+                    listProduct.add(receiveProduct);
                   }
                 },
               );

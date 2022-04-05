@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:home_work_6/product_model.dart';
@@ -17,6 +19,12 @@ class CreateProductPage extends StatefulWidget {
 class _CreateProductPageState extends State<CreateProductPage> {
   @override
   Widget build(BuildContext context) {
+    Product newProduct = ModalRoute.of(context)?.settings.arguments as Product;
+    controllerName.text = newProduct.name;
+    controllerPrice.text = newProduct.price;
+    controllerDescription.text = newProduct.description;
+    controllerimageURL.text = newProduct.imageUrl;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Create Product'),
