@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:home_work_6/product_model.dart';
@@ -29,6 +27,16 @@ class _CreateProductPageState extends State<CreateProductPage> {
       appBar: AppBar(
         title: const Text('Create Product'),
         centerTitle: true,
+        leading: MaterialButton(
+          onPressed: () {
+            Product _product = Product('', '', '', '');
+            Navigator.pop(context, _product);
+          },
+          child: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
         actions: [
           MaterialButton(
             onPressed: () {

@@ -66,15 +66,13 @@ class HomePage extends StatelessWidget {
           itemCount: 3,
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
-              child: Container(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15), // Image border
-                  child: SizedBox(
-                    child: Image.network(
-                      _image[index],
-                      alignment: Alignment.topCenter,
-                      fit: BoxFit.cover,
-                    ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15), // Image border
+                child: SizedBox(
+                  child: Image.network(
+                    _image[index],
+                    alignment: Alignment.topCenter,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
