@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_work_6/create_product.dart';
 import 'package:home_work_6/product_tag.dart';
 
 import 'product_model.dart';
@@ -25,10 +26,11 @@ class _ProductListPageState extends State<ProductListPage> {
         actions: [
           MaterialButton(
             onPressed: () async {
-              Product newProduct = Product('', '', '', '');
+              clearText();
               var receiveProduct = await Navigator.pushNamed(
-                  context, '/screen3',
-                  arguments: newProduct);
+                context,
+                '/screen3',
+              );
               setState(
                 () {
                   if ((receiveProduct as Product).name != '') {
